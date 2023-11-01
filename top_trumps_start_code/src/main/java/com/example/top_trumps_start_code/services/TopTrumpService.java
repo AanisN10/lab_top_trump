@@ -1,4 +1,4 @@
-package services;
+package com.example.top_trumps_start_code.services;
 
 import com.example.top_trumps_start_code.models.Card;
 import com.example.top_trumps_start_code.models.Rank;
@@ -14,6 +14,7 @@ public class TopTrumpService {
     private Card card1;
     private Card card2;
 //    private String currentCard;
+    private String currentCard;
     private ArrayList<Card> myCards;
 
 
@@ -23,11 +24,17 @@ public class TopTrumpService {
 
     }
 
+    public String callCards(ArrayList<Card> cards)
+    {
+        if (card1.getCardValue() > card2.getCardValue())
+        {
+            return "card 1 wins";
+        }
 
-    public Reply startNewGame(){
-        this.card1 = new Card();
-        this.card2 = new Card();
-        this.myCards = new ArrayList<>();
+        else
+        {
+            return "card 2 wins";
+        }
     }
 
     public Card getCard1() {
@@ -52,5 +59,15 @@ public class TopTrumpService {
 
     public void setMyCards(ArrayList<Card> myCards) {
         this.myCards = myCards;
+    }
+
+    public String getCurrentCard()
+    {
+        return currentCard;
+    }
+
+    public void setCurrentCard(String currentCard)
+    {
+        this.currentCard = currentCard;
     }
 }
